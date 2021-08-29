@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  react-app:
+    container_name: react-app
+    build:
+      context: .
+      dockerfile: docker/docker-react-app.dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      # keeping ports the same in case you want to spin it up locally otherwise endpoints will be different.
+      # in real life you'd want these different so that they don't conflict locally with other services.
+      - 3000:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+  graphql-api:
+    container_name: graphql-api
+    build:
+      context: .
+      dockerfile: docker/docker-graphql-pokemon-api.dockerfile
+    ports:
+      # keeping ports the same in case you want to spin it up locally otherwise endpoints will be different.
+      # in real life you'd want these different so that they don't conflict locally with other services.
+      - 5000:5000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
