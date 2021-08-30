@@ -7,7 +7,6 @@ const Attacks = props => {
   const { values } = props;
 
   const items = values.filter(attackItem => attackItem.name).map((attackItem, index) => {
-    console.log(attackItem);
     const { damage, name, type } = attackItem;
     return (
       <tr key={index}>
