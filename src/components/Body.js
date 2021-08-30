@@ -5,52 +5,78 @@ import { Row, Col, Container } from 'react-bootstrap';
 import usePokemons from '../hooks/usePokemons';
 import { App } from '../constants';
 import NavigationButton from './NavigationButton';
-import limitValidator from '../utils/limitValidator';
+import indexValidator from '../utils/indexValidator';
+import CurrentIndex from './CurrentIndex';
+import Card from './Card';
 
 const Body = () => {
   const {
     pokemonList, isError, isLoading
-  } = usePokemons(App.POKEMONS_MAX_LIMIT);
+  } = usePokemons(App.POKEMONS_FETCH_LIMIT);
 
-  const [currentID, setCurrentID] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleIDChange = (increase) => {
-    let id = currentID;
-    if (increase) {
-      id++;
-    } else {
-      id--;
-    }
-
-    if (!limitValidator(id + 1)) {
-      throw new Error('ID is not valid value.');
-    }
-
-    setCurrentID(id);
+  const handleNavigationNext = () => {
+    setCurrentIndex(currentIndex + 1);
   };
 
-  if ((!pokemonList.length && !isLoading) || !isError) {
+  const handleNavigationBack = () => {
+    setCurrentIndex(currentIndex - 1);
+  };
+
+  if (!pokemonList.length || isLoading || isError) {
     return (
       <Container className='body'>
-        <Row className='center'>
-          <Col xs={12} lg={12} className="loading">
-            <div className="loader" />
-            <p>{isError ? 'Unable to process an error occured' : 'Loading please wait...'}</p>
-          </Col>
-        </Row>
+        <div className='center-loading'>
+          <Row>
+            <Col xs={12} lg={12} className="loading">
+              <div className="loader" />
+              <p>{isError ? 'Unable to process an error occured' : 'Loading please wait...'}</p>
+            </Col>
+          </Row>
+        </div>
       </Container>
     );
   }
 
+  const { 
+    name,
+    number,
+    image,
+    resistant,
+    weaknesses
+  } = pokemonList[currentIndex];
+
+  const nextIndex = currentIndex + 1;
+  const backIndex = currentIndex - 1;
+  const maxSize = pokemonList.length.toString();
+  const maxIndex = Math.max(0, pokemonList.length - 1);
+
+
   return (
     <Container className='body'>
       <Row>
-        <Col lg={6}>
-          <NavigationButton handleChange={handleIDChange} nextValue={currentID - 1}/>
+        <Col lg={12}>
+          <CurrentIndex index={number} maxSize={maxSize} />
         </Col>
-        <Col lg={6}>
+      </Row>
+      <Row>
+        <Col lg={12} className='center-content'>
+          <Card 
+            name={name}
+            image={image}
+            resistances={resistant}
+            weaknesses={weaknesses}
+          />
+        </Col>
+      </Row>
+      <Row className='center-content'>
+        <Col xs={6} lg={6}>
+          <NavigationButton handleChange={handleNavigationBack} disabled={!indexValidator(backIndex, maxIndex)}>Back</NavigationButton>
+        </Col>
+        <Col xs={6} lg={6}>
           <div className="d-flex justify-content-end">
-            <NavigationButton handleChange={handleIDChange} nextValue={currentID + 1} increase/>
+            <NavigationButton handleChange={handleNavigationNext} disabled={!indexValidator(nextIndex, maxIndex)}>Next</NavigationButton>
           </div>
         </Col>
       </Row>

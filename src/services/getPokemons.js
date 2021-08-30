@@ -6,9 +6,9 @@ import {
 } from "@apollo/client";
 
 /**
- * @param {int} limit 
+ * @param {int} maxIndex
  */
-export const getPokemons = async limit => {
+export const getPokemons = async maxFetch => {
 
   const client = new ApolloClient({
     uri: Endpoints.GET_POKEMONS,
@@ -19,8 +19,12 @@ export const getPokemons = async limit => {
     .query({
       query: gql`
         query Query {
-          pokemons(first: ${limit}) {
-            name
+          pokemons(first: ${maxFetch}) {
+            name,
+            number,
+            image,
+            resistant,
+            weaknesses,
           }
         }
       `
