@@ -44,13 +44,18 @@ const Body = () => {
     number,
     image,
     resistant,
-    weaknesses
+    weaknesses,
+    attacks: {
+      fast: fastAttacks = {},
+      special: specialAttacks = {}
+    }
   } = pokemonList[currentIndex];
 
   const nextIndex = currentIndex + 1;
   const backIndex = currentIndex - 1;
   const maxSize = pokemonList.length.toString();
   const maxIndex = Math.max(0, pokemonList.length - 1);
+
 
 
   return (
@@ -67,6 +72,8 @@ const Body = () => {
             image={image}
             resistances={resistant}
             weaknesses={weaknesses}
+            fastAttacks={fastAttacks}
+            specialAttacks={specialAttacks}
           />
         </Col>
       </Row>
