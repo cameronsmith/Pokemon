@@ -14,32 +14,34 @@ export const getPokemons = async maxFetch => {
     uri: Endpoints.GET_POKEMONS,
     cache: new InMemoryCache()
   });
+
+  const pokemons = gql`
+    query Query {
+      pokemons(first: ${maxFetch}) {
+        name,
+        number,
+        image,
+        resistant,
+        weaknesses,
+        attacks {
+          fast {
+            name,
+            type,
+            damage
+          },
+          special {
+            name,
+            type,
+            damage
+          }
+        }
+      }
+    }
+  `;
   
   const response = await client
     .query({
-      query: gql`
-        query Query {
-          pokemons(first: ${maxFetch}) {
-            name,
-            number,
-            image,
-            resistant,
-            weaknesses,
-            attacks {
-              fast {
-                name,
-                type,
-                damage
-              },
-              special {
-                name,
-                type,
-                damage
-              }
-            }
-          }
-        }
-      `
+      query: pokemons
     });
 
   return (response.data && response.data.pokemons && response.data.pokemons.length) ? response.data.pokemons : [];
