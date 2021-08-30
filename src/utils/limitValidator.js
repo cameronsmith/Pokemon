@@ -1,7 +1,7 @@
 import { App } from '../constants';
 
-const limitValidator = (limit) => {
-  if (!limit) {
+const limitValidator = limit => {
+  if (isNaN(limit)) {
     return false;
   }
 
