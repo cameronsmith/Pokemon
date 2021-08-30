@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { getPokemons } from '../services/pokemons';
+import { getPokemons } from '../services/getPokemons';
 
 /**
- * @param {int} limit 
+ * @param {int} maxFetch
  */
-const usePokemons = limit => {
+const usePokemons = (maxFetch = 151) => {
   const [pokemonList, setPokemonList] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchPokemons = async limit => {
+  const fetchPokemons = async maxFetch => {
     setIsLoading(true);
     setIsError(false);
     try {
-      setPokemonList(await getPokemons(limit));
+      setPokemonList(await getPokemons(maxFetch));
       setIsLoading(false);
     } catch (error) {
       console.log(`An error occured when trying to fetch pokemons: ${error}`);
@@ -23,8 +23,8 @@ const usePokemons = limit => {
   };
 
   useEffect(() => {
-    (async () => fetchPokemons(limit))();
-  }, [limit]);
+    (async () => fetchPokemons(maxFetch))();
+  }, [maxFetch]);
 
   return {
     pokemonList, isError, isLoading

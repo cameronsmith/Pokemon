@@ -1,0 +1,11 @@
+.stats {  
+    display: flex;
+    flex-wrap: wrap;
+    
+    span {
+      height: 20px;
+      background-color: #00582c;
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+}
