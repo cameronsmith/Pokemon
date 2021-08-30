@@ -8,7 +8,8 @@ import {
 /**
  * @param {int} limit 
  */
-export const getPokemons = async (limit) => {
+export const getPokemons = async limit => {
+
   const client = new ApolloClient({
     uri: Endpoints.GET_POKEMONS,
     cache: new InMemoryCache()
@@ -25,6 +26,5 @@ export const getPokemons = async (limit) => {
       `
     });
 
-  console.log(response);
-  //.then(result => console.log(result));
+  return (response.data && response.data.pokemons && response.data.pokemons.length) ? response.data.pokemons : [];
 };
