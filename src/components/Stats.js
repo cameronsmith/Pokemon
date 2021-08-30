@@ -4,10 +4,10 @@ import { Badge } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const Stats = props => {
-  const { values } = props;
+  const { values, color } = props;
 
-  const items = values.map((name) => 
-    <Badge key={name} bg="secondary">{name}</Badge>
+  const items = values.filter(name => name).map((name) => 
+    <Badge key={name} bg="secondary" style={{backgroundColor: color}}>{name}</Badge>
   );
 
   return (
@@ -19,6 +19,11 @@ const Stats = props => {
 
 Stats.propTypes = {
   values: PropTypes.array,
+  color: PropTypes.string,
+};
+
+Stats.defaultProps = {
+  color: 'green',
 };
 
 export default Stats;

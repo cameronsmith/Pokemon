@@ -25,6 +25,18 @@ export const getPokemons = async maxFetch => {
             image,
             resistant,
             weaknesses,
+            attacks {
+              fast {
+                name,
+                type,
+                damage
+              },
+              special {
+                name,
+                type,
+                damage
+              }
+            }
           }
         }
       `

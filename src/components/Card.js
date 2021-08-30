@@ -3,9 +3,17 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Stats from './Stats';
+import Attacks from './Attacks';
 
 const Card = props => {
-  const { name, image, resistances, weaknesses } = props;
+  const { 
+    name,
+    image,
+    resistances,
+    weaknesses,
+    fastAttacks,
+    specialAttacks,
+  } = props;
 
 
   return (
@@ -25,7 +33,19 @@ const Card = props => {
       <Row>
         <Col lg={12}>
           <span className='mini-title'>Weaknesses:</span>
-          <Stats values={weaknesses} />
+          <Stats values={weaknesses} color={'red'}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={12}>
+          <span className='mini-title'>Fast Attacks:</span>
+          <Attacks values={fastAttacks}/>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={12}>
+          <span className='mini-title'>Special Attacks:</span>
+          <Attacks values={specialAttacks}/>
         </Col>
       </Row>
     </div>
@@ -37,11 +57,15 @@ Card.propTypes = {
   image: PropTypes.string,
   resistances: PropTypes.array,
   weaknesses: PropTypes.array,
+  fastAttacks: PropTypes.array,
+  specialAttacks: PropTypes.array,
 };
 
 Card.defaultProps = {
   resistences: [],
   weaknesses: [],
+  fastAttacks: [],
+  specialAttacks: [],
 };
 
 export default Card;
