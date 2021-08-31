@@ -154,3 +154,145 @@ test('buttons correctly disable and enable based on index', async () => {
   expect(backButton).toBeDisabled();
   expect(nextButton).not.toBeDisabled();
 });
+
+test('index updates correctly when navigating', async () => {
+  const { getByTestId } = render(
+    <MockedProvider mocks={acceptMock} addTypename={false}>
+      <Body fetchLimit={3} />
+    </MockedProvider>
+  );
+
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
+  const backButton = getByTestId('back-navigation');
+  const nextButton = getByTestId('next-navigation');
+
+  const currentIndex = getByTestId('current-index');
+  expect(currentIndex.textContent).toBe('001 / 003');
+  fireEvent.click(nextButton);
+  expect(currentIndex.textContent).toBe('002 / 003');
+  fireEvent.click(backButton);
+  expect(currentIndex.textContent).toBe('001 / 003');
+});
+
+test('has an image when navigating', async () => {
+  const { getByTestId } = render(
+    <MockedProvider mocks={acceptMock} addTypename={false}>
+      <Body fetchLimit={3} />
+    </MockedProvider>
+  );
+
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
+  
+  const { pokemons } = pokemonDataMock;
+
+  const nextButton = getByTestId('next-navigation');
+  const image = getByTestId('pokemon-image');
+
+  expect(image.src).toBe(pokemons[0].image);
+  fireEvent.click(nextButton);
+  expect(image.src).toBe(pokemons[1].image);
+});
+
+test('has resistances when navigating', async () => {
+  const { getByTestId } = render(
+    <MockedProvider mocks={acceptMock} addTypename={false}>
+      <Body fetchLimit={3} />
+    </MockedProvider>
+  );
+
+  const { pokemons } = pokemonDataMock;
+
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
+  const nextButton = getByTestId('next-navigation');
+  const resistances = getByTestId('resistances');
+
+  const validateTest = (pokemonIndex) => {
+    resistances.querySelectorAll('span').forEach((node, index) => {
+      let resistant = pokemons[pokemonIndex].resistant[index];
+      expect(node.textContent).toBe(resistant);
+    });
+  };
+
+  validateTest(0);
+  fireEvent.click(nextButton);
+  validateTest(1);
+});
+
+test('has weaknesses when navigating', async () => {
+  const { getByTestId } = render(
+    <MockedProvider mocks={acceptMock} addTypename={false}>
+      <Body fetchLimit={3} />
+    </MockedProvider>
+  );
+
+  const { pokemons } = pokemonDataMock;
+
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
+  const nextButton = getByTestId('next-navigation');
+  const weaknesses = getByTestId('weaknesses');
+
+  const validateTest = (pokemonIndex) => {
+    weaknesses.querySelectorAll('span').forEach((node, index) => {
+      let weakness = pokemons[pokemonIndex].weaknesses[index];
+      expect(node.textContent).toBe(weakness);
+    });
+  };
+  
+  validateTest(0);
+  fireEvent.click(nextButton);
+  validateTest(1);
+});
+
+test('has fast attacks when navigating', async () => {
+  const { getByTestId } = render(
+    <MockedProvider mocks={acceptMock} addTypename={false}>
+      <Body fetchLimit={3} />
+    </MockedProvider>
+  );
+
+  const { pokemons } = pokemonDataMock;
+
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
+  const nextButton = getByTestId('next-navigation');
+  const fastAttacks = getByTestId('fast-attacks');
+
+  const validateTest = (pokemonIndex) => {
+    fastAttacks.querySelectorAll('tr').forEach((node, index) => {
+      let { attacks: { fast } } = pokemons[pokemonIndex];
+      let { damage, name, type } = fast[index];
+      expect(node.querySelectorAll('td')[0].textContent).toBe(name);
+      expect(node.querySelectorAll('td')[1].textContent).toBe(type);
+      expect(node.querySelectorAll('td')[2].textContent).toBe('' + damage);
+    });
+  };
+  validateTest(0);
+  fireEvent.click(nextButton);
+  validateTest(1);
+});
+
+test('has special attacks when navigating', async () => {
+  const { getByTestId } = render(
+    <MockedProvider mocks={acceptMock} addTypename={false}>
+      <Body fetchLimit={3} />
+    </MockedProvider>
+  );
+
+  const { pokemons } = pokemonDataMock;
+
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
+  const nextButton = getByTestId('next-navigation');
+  const fastAttacks = getByTestId('special-attacks');
+
+  const validateTest = (pokemonIndex) => {
+    fastAttacks.querySelectorAll('tr').forEach((node, index) => {
+      let { attacks: { special } } = pokemons[pokemonIndex];
+      let { damage, name, type } = special[index];
+      expect(node.querySelectorAll('td')[0].textContent).toBe(name);
+      expect(node.querySelectorAll('td')[1].textContent).toBe(type);
+      expect(node.querySelectorAll('td')[2].textContent).toBe('' + damage);
+    });
+  };
+  validateTest(0);
+  fireEvent.click(nextButton);
+  validateTest(1);
+});

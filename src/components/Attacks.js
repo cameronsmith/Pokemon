@@ -4,7 +4,7 @@ import { Table } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const Attacks = props => {
-  const { values } = props;
+  const { values, testId } = props;
 
   const items = values.filter(attackItem => attackItem.name).map((attackItem, index) => {
     const { damage, name, type } = attackItem;
@@ -27,7 +27,7 @@ const Attacks = props => {
             <th>Damage</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-testid={testId}>
           {items}
         </tbody>
       </Table>
@@ -37,7 +37,11 @@ const Attacks = props => {
 
 Attacks.propTypes = {
   values: PropTypes.array,
+  testId: PropTypes.string,
 };
 
+Attacks.defaultProps = {
+  testId: '',
+};
 
 export default Attacks;

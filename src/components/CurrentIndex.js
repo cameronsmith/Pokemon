@@ -6,7 +6,7 @@ const CurrentIndex = props => {
   const { index, maxSize } = props;
 
   return (
-    <div className='current-index'>
+    <div className='current-index' data-testid='current-index'>
       {index.padStart(3, '0')} / {maxSize.padStart(3, '0')}
     </div>
   );
