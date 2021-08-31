@@ -1,4 +1,4 @@
-import indexValidator from './indexValidator'
+import indexValidator from './indexValidator';
 
 test('is limits being applied', async () => {
   expect(indexValidator(-1, 10)).toBeFalsy();

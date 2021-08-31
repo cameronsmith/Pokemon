@@ -1,6 +1,5 @@
 # Pokémon React Application
 
-
 ## Initial Project Setup
 
 Copy the environment file:
@@ -20,6 +19,7 @@ make build
 ```
 
 The application is now available at: [http://localhost:3000](http://localhost:3000)
+
 The graphql-pokemon application is also available at: [http://localhost:5000](http://localhost:5000)
 
 ##### Please Note:
@@ -47,7 +47,7 @@ if you are not using the docker environment.
 
 ## Testing
 
-To make user testing easier you can edit the `POKEMONS_FETCH_LIMIT` constant within `/src/constants/app.js` file to something like 10.
+To make user testing easier you can edit the `POKEMONS_FETCH_LIMIT` constant within the `/src/constants/app.js` file to something like 10.
 This will avoid you having to click through a 151 pokemons.
 
 You can also run the application tests and linting by performing:

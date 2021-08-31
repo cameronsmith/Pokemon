@@ -174,6 +174,25 @@ test('index updates correctly when navigating', async () => {
   expect(currentIndex.textContent).toBe('001 / 003');
 });
 
+test('has a name when navigating', async () => {
+  const { getByTestId } = render(
+    <MockedProvider mocks={acceptMock} addTypename={false}>
+      <Body fetchLimit={3} />
+    </MockedProvider>
+  );
+
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
+  
+  const { pokemons } = pokemonDataMock;
+
+  const nextButton = getByTestId('next-navigation');
+  const name = getByTestId('pokemon-name');
+
+  expect(name.textContent).toBe(pokemons[0].name);
+  fireEvent.click(nextButton);
+  expect(name.textContent).toBe(pokemons[1].name);
+});
+
 test('has an image when navigating', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
