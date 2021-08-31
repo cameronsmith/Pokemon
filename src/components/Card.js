@@ -22,30 +22,30 @@ const Card = props => {
         <Col lg={12} className='name'>{name}</Col>
       </Row>
       <Row>
-        <Col lg={12} className='image'><img src={image} alt='pokemon'/></Col>
+        <Col lg={12} className='image'><img data-testid='pokemon-image' src={image} alt='pokemon'/></Col>
       </Row>
       <Row>
         <Col lg={12}>
           <span className='mini-title'>Resistances:</span>
-          <Stats values={resistances} />
+          <Stats values={resistances} testId={'resistances'}/>
         </Col>
       </Row>
       <Row>
         <Col lg={12}>
           <span className='mini-title'>Weaknesses:</span>
-          <Stats values={weaknesses} color={'red'}/>
+          <Stats values={weaknesses} color={'red'} testId={'weaknesses'}/>
         </Col>
       </Row>
       <Row>
         <Col lg={12}>
           <span className='mini-title'>Fast Attacks:</span>
-          <Attacks values={fastAttacks}/>
+          <Attacks values={fastAttacks} testId={'fast-attacks'} />
         </Col>
       </Row>
       <Row>
         <Col lg={12}>
           <span className='mini-title'>Special Attacks:</span>
-          <Attacks values={specialAttacks}/>
+          <Attacks values={specialAttacks} testId={'special-attacks'}/>
         </Col>
       </Row>
     </div>
