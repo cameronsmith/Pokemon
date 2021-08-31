@@ -1,0 +1,151 @@
+{
+  "pokemons": [
+    {
+      "name": "Bulbasaur",
+      "number": "001",
+      "image": "https://img.pokemondb.net/artwork/bulbasaur.jpg",
+      "resistant": [
+        "Water",
+        "Electric",
+        "Grass",
+        "Fighting",
+        "Fairy"
+      ],
+      "weaknesses": [
+        "Fire",
+        "Ice",
+        "Flying",
+        "Psychic"
+      ],
+      "attacks": {
+        "fast": [
+          {
+            "name": "Tackle",
+            "type": "Normal",
+            "damage": 12
+          },
+          {
+            "name": "Vine Whip",
+            "type": "Grass",
+            "damage": 7
+          }
+        ],
+        "special": [
+          {
+            "name": "Power Whip",
+            "type": "Grass",
+            "damage": 70
+          },
+          {
+            "name": "Seed Bomb",
+            "type": "Grass",
+            "damage": 40
+          },
+          {
+            "name": "Sludge Bomb",
+            "type": "Poison",
+            "damage": 55
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ivysaur",
+      "number": "002",
+      "image": "https://img.pokemondb.net/artwork/ivysaur.jpg",
+      "resistant": [
+        "Water",
+        "Electric",
+        "Grass",
+        "Fighting",
+        "Fairy"
+      ],
+      "weaknesses": [
+        "Fire",
+        "Ice",
+        "Flying",
+        "Psychic"
+      ],
+      "attacks": {
+        "fast": [
+          {
+            "name": "Razor Leaf",
+            "type": "Grass",
+            "damage": 15
+          },
+          {
+            "name": "Vine Whip",
+            "type": "Grass",
+            "damage": 7
+          }
+        ],
+        "special": [
+          {
+            "name": "Power Whip",
+            "type": "Grass",
+            "damage": 70
+          },
+          {
+            "name": "Sludge Bomb",
+            "type": "Poison",
+            "damage": 55
+          },
+          {
+            "name": "Solar Beam",
+            "type": "Grass",
+            "damage": 120
+          }
+        ]
+      }
+    },
+    {
+      "name": "Venusaur",
+      "number": "003",
+      "image": "https://img.pokemondb.net/artwork/venusaur.jpg",
+      "resistant": [
+        "Water",
+        "Electric",
+        "Grass",
+        "Fighting",
+        "Fairy"
+      ],
+      "weaknesses": [
+        "Fire",
+        "Ice",
+        "Flying",
+        "Psychic"
+      ],
+      "attacks": {
+        "fast": [
+          {
+            "name": "Razor Leaf",
+            "type": "Grass",
+            "damage": 15
+          },
+          {
+            "name": "Vine Whip",
+            "type": "Grass",
+            "damage": 7
+          }
+        ],
+        "special": [
+          {
+            "name": "Petal Blizzard",
+            "type": "Grass",
+            "damage": 65
+          },
+          {
+            "name": "Sludge Bomb",
+            "type": "Poison",
+            "damage": 55
+          },
+          {
+            "name": "Solar Beam",
+            "type": "Grass",
+            "damage": 120
+          }
+        ]
+      }
+    }
+  ]
+}

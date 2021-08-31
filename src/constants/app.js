@@ -1,6 +1,9 @@
 const app = {
-  POKEMONS_MAX_INDEX: 150,
-  POKEMONS_MIN_INDEX: 0,
+  /**
+   * To make testing easier you can change this to another value like 10.
+   * 
+   * Please Note: If you'd like to see the loading spinner you can set this to a value of 0.
+   */
   POKEMONS_FETCH_LIMIT: 151,
 };
 
