@@ -19,7 +19,7 @@ const Card = props => {
   return (
     <div className='card'>
       <Row>
-        <Col lg={12} className='name'>{name}</Col>
+        <Col lg={12} className='name' data-testid='pokemon-name'>{name}</Col>
       </Row>
       <Row>
         <Col lg={12} className='image'><img data-testid='pokemon-image' src={image} alt='pokemon'/></Col>
