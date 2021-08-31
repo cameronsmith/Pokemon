@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
 const NavigationButton = props => {
-  const { handleChange, disabled, children } = props;
+  const { handleChange, disabled, testId, children } = props;
 
   return (
-    <Button className='navigation-button' variant="warning" 
+    <Button className='navigation-button' variant="warning"  data-testid={testId}
       onClick={handleChange}
       disabled={disabled}>{children}</Button>
   );
@@ -16,10 +16,12 @@ const NavigationButton = props => {
 NavigationButton.propTypes = {
   handleChange: PropTypes.func,
   disabled: PropTypes.bool,
+  testId: PropTypes.string,
 };
 
 NavigationButton.defaultProps = {
   disabled: false,
+  testId: '',
 };
 
   

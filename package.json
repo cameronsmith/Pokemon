@@ -17,7 +17,6 @@
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
-    "enzyme": "^3.11.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2"
   },

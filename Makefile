@@ -12,5 +12,6 @@ down:
     docker-compose down
 test:
     docker exec -it react-app eslint .
+    docker exec -it react-app npm run test
 help:
     @echo "build  - Install, launch, and run tests on the application.\nup-d       - Launch the application in deamon mode.\ndown     - Close the application.\nup       - Launch the application.\ndown     - Close the application.\ntest     - Run tests for the application.\nhelp     - This message.\n"
