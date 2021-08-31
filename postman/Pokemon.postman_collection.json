@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "8f22af31-ea36-4ebc-896e-d36dc2c1070e",
+		"name": "Pokemon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:5000",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Query($fetchLimit: Int!) {\n  pokemons(first:$fetchLimit) {\n    name,\n    number,\n    image,\n    resistant,\n    weaknesses,\n    attacks {\n      fast {\n        name,\n        type,\n        damage\n      },\n      special {\n        name,\n        type,\n        damage\n      }\n    }\n  }\n}",
+						"variables": "{\n    \"fetchLimit\": 5\n}"
+					}
+				},
+				"url": {
+					"raw": "localhost:5000",
+					"host": [
+						"localhost"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		}
+	]
+}
