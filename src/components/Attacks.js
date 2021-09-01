@@ -19,7 +19,7 @@ const Attacks = props => {
 
   return (
     <div className='attacks'>
-      <Table striped bordered hover size="sm">
+      <Table striped bordered hover size='sm'>
         <thead>
           <tr>
             <th>Name</th>

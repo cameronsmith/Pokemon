@@ -34,7 +34,7 @@ test('when get pokemon query is pending we get loading', () => {
   expect(loadingNotice.textContent).toBe('Loading please wait...');
 });
 
-test('when graphql error we display error', async () => {
+test('when graphql error we display an error', async () => {
   const graphqlErrorMock = [
     {
       request: {
@@ -62,7 +62,7 @@ test('when graphql error we display error', async () => {
   expect(loadingNotice.textContent).toContain('Unable to process an error occured');
 });
 
-test('when network error we display error', async () => {
+test('when network error we display an error', async () => {
   const networkErrorMock = [
     {
       request: {
@@ -88,7 +88,7 @@ test('when network error we display error', async () => {
   expect(loadingNotice.textContent).toContain('Unable to process an error occured');
 });
 
-test('when valid pokemon returned from api we do not display loading', async () => {
+test('when a valid request is complete we do not display loading', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
       <Body fetchLimit={3} />
@@ -155,7 +155,7 @@ test('buttons correctly disable and enable based on index', async () => {
   expect(nextButton).not.toBeDisabled();
 });
 
-test('index updates correctly when navigating', async () => {
+test('main index text updates correctly when navigating', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
       <Body fetchLimit={3} />
@@ -174,7 +174,7 @@ test('index updates correctly when navigating', async () => {
   expect(currentIndex.textContent).toBe('001 / 003');
 });
 
-test('has a name when navigating', async () => {
+test('pokemon has a name when navigating', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
       <Body fetchLimit={3} />
@@ -193,7 +193,7 @@ test('has a name when navigating', async () => {
   expect(name.textContent).toBe(pokemons[1].name);
 });
 
-test('has an image when navigating', async () => {
+test('a pokemon has an image when navigating', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
       <Body fetchLimit={3} />
@@ -212,7 +212,7 @@ test('has an image when navigating', async () => {
   expect(image.src).toBe(pokemons[1].image);
 });
 
-test('has resistances when navigating', async () => {
+test('a pokemon has resistances when navigating', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
       <Body fetchLimit={3} />
@@ -237,7 +237,7 @@ test('has resistances when navigating', async () => {
   validateTest(1);
 });
 
-test('has weaknesses when navigating', async () => {
+test('a pokemon has weaknesses when navigating', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
       <Body fetchLimit={3} />
@@ -262,7 +262,7 @@ test('has weaknesses when navigating', async () => {
   validateTest(1);
 });
 
-test('has fast attacks when navigating', async () => {
+test('a pokemon has fast attacks when navigating', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
       <Body fetchLimit={3} />
@@ -289,7 +289,7 @@ test('has fast attacks when navigating', async () => {
   validateTest(1);
 });
 
-test('has special attacks when navigating', async () => {
+test('a pokemon has special attacks when navigating', async () => {
   const { getByTestId } = render(
     <MockedProvider mocks={acceptMock} addTypename={false}>
       <Body fetchLimit={3} />

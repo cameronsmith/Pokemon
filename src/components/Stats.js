@@ -7,7 +7,7 @@ const Stats = props => {
   const { values, color, testId } = props;
 
   const items = values.filter(name => name).map((name) => 
-    <Badge key={name} bg="secondary" style={{backgroundColor: color}}>{name}</Badge>
+    <Badge key={name} bg='secondary' style={{backgroundColor: color}}>{name}</Badge>
   );
 
   return (
