@@ -24,5 +24,4 @@ NavigationButton.defaultProps = {
   testId: '',
 };
 
-  
 export default NavigationButton;

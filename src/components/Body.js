@@ -74,8 +74,6 @@ const Body = (props) => {
   const maxSize = pokemonList.length.toString();
   const maxIndex = Math.max(0, pokemonList.length - 1);
 
-
-
   return (
     <Container className='body' data-testid='pokemon'>
       <Row>
