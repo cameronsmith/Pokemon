@@ -15,7 +15,6 @@ const Card = props => {
     specialAttacks,
   } = props;
 
-
   return (
     <div className='card'>
       <Row>

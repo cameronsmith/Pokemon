@@ -4,7 +4,6 @@ const defaultMaxLimit = App.POKEMONS_FETCH_LIMIT;
 const defaultMinLimit = 0;
 
 /**
- * 
  * @param {int} index 
  * @param {int} maxIndex 
  * @param {int} minIndex 

@@ -21,8 +21,6 @@ query Query($fetchLimit: Int!) {
       }
     }
   }
-}
-  `;
+}`;
 
-  
 export default GET_POKEMON_QUERY;
