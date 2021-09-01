@@ -1,5 +1,8 @@
 # Pokémon React Application
 
+[![Build Status](https://app.travis-ci.com/cameronsmith/Pokemon.svg?branch=main)](https://app.travis-ci.com/cameronsmith/Pokemon)
+
+
 ## Initial Project Setup
 
 Copy the environment file:
