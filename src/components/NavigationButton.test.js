@@ -4,7 +4,7 @@ import NavigationButton from './NavigationButton';
 
 afterEach(cleanup);
 
-test('has navigation got correct text', async () => {
+test('navigation gets the correct text', async () => {
   const { getByTestId } = render(<NavigationButton
     handleChange={() => {}}
     testId={'navigation'}
@@ -15,7 +15,7 @@ test('has navigation got correct text', async () => {
   expect(currentIndex).toBe('Next');
 });
 
-test('is navigation disabled', async () => {
+test('navigation is disabled', async () => {
   const { getByTestId } = render(<NavigationButton
     handleChange={() => {}}
     testId={'navigation'}
@@ -26,7 +26,7 @@ test('is navigation disabled', async () => {
   expect(currentIndex).toBeDisabled();
 });
 
-test('is navigation not disabled', async () => {
+test('navigation is not disabled', async () => {
   const { getByTestId } = render(<NavigationButton
     handleChange={() => {}}
     testId={'navigation'}

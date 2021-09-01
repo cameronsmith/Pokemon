@@ -47,8 +47,8 @@ const Body = (props) => {
       <Container className='body'>
         <div className='center-loading'>
           <Row>
-            <Col xs={12} lg={12} className="loading">
-              <div className="loader" />
+            <Col xs={12} lg={12} className='loading'>
+              <div className='loader' />
               <p data-testid='loading-notice'>{isError ? `Unable to process an error occured: ${isError}` : 'Loading please wait...'}</p>
             </Col>
           </Row>
@@ -103,7 +103,7 @@ const Body = (props) => {
             disabled={!indexValidator(backIndex, maxIndex)}>Back</NavigationButton>
         </Col>
         <Col xs={6} lg={6}>
-          <div className="d-flex justify-content-end">
+          <div className='d-flex justify-content-end'>
             <NavigationButton
               handleChange={handleNavigationNext}
               testId={'next-navigation'}

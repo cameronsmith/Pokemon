@@ -4,14 +4,14 @@ import Stats from './Stats';
 
 afterEach(cleanup);
 
-test('is stats populated correctly', async () => {
+test('stats are being populated correctly', async () => {
   const statsData =
     [
-      "Water",
-      "Electric",
-      "Grass",
-      "Fighting",
-      "Fairy"
+      'Water',
+      'Electric',
+      'Grass',
+      'Fighting',
+      'Fairy'
     ];
 
   const { getByTestId } = render(<Stats values={statsData} testId={'stats'} />);

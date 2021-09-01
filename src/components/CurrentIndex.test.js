@@ -4,7 +4,7 @@ import CurrentIndex from './CurrentIndex';
 
 afterEach(cleanup);
 
-test('index is padding indexes correctly', async () => {
+test('the index is correctly padding the indexes', async () => {
   const { getByTestId } = render(<CurrentIndex index={'5'} maxSize={'22'} />);
 
   const currentIndex = getByTestId('current-index').textContent;

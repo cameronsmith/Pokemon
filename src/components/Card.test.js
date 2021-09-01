@@ -4,7 +4,7 @@ import Card from './Card';
 
 afterEach(cleanup);
 
-test('name is being displayed', async () => {
+test('a name is being displayed', async () => {
   const { getByTestId } = render( <Card 
     name={'Cameron Smith'}
     image={''}
