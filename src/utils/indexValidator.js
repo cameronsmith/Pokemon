@@ -1,6 +1,7 @@
 import { App } from '../constants';
 
-const defaultMaxLimit = App.POKEMONS_FETCH_LIMIT;
+// Must be less than the fetch limit as the index starts at zero.
+const defaultMaxLimit = App.POKEMONS_FETCH_LIMIT - 1;
 const defaultMinLimit = 0;
 
 /**
