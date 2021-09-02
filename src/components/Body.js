@@ -34,11 +34,13 @@ const Body = (props) => {
     setCurrentIndex(0);
   }
 
-  const handleNavigationNext = () => {
+  const handleNavigationNext = (e) => {
+    e.preventDefault();
     setCurrentIndex(currentIndex + 1);
   };
 
-  const handleNavigationBack = () => {
+  const handleNavigationBack = (e) => {
+    e.preventDefault();
     setCurrentIndex(currentIndex - 1);
   };
 
